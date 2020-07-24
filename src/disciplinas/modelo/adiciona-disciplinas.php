@@ -6,7 +6,7 @@
     $disciplina = $_REQUEST['disciplina'];
     $professor = $_REQUEST['professor'];
 
-    if($disciplina = ""){
+    if($disciplina == ""){
         echo "O campo com o nome da disciplina não pode estar vazio, tente novamente";
     }
     else{
@@ -15,11 +15,18 @@
 
         // Testar o comando SQL no banco de dados
         if(mysqli_query($conecta, $sql)){
-            echo "Dados cadastrados com sucesso!";
+            $dados = array(
+                'tipo' => 'alert-success',
+                'mensagem' => 'Dados cadastrados com sucesso!'
+            );
         }
         else{
-            echo "Cadastro não efetuado";
+            $dados = array(
+                'tipo' => 'alert-danger',
+                'mensagem' => 'Ocorreu um erro no momento do cadastro'
+            );
         }
     }
+    echo json_encode($dados);
 
     

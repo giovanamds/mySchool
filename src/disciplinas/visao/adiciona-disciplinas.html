@@ -5,7 +5,7 @@
             Cadastro de Disciplinas
         </h2>
 
-        <form action="src/disciplinas/modelo/adiciona-disciplinas.php" method="POST" id="adiciona-disciplinas">
+        <form id="adiciona-disciplinas">
             <div class="form-group">
                 <label>Nome da disciplina</label>
                 <input type="text" name="disciplina" id="disciplina" class="form-control" maxlength="100">
@@ -17,7 +17,7 @@
 
             <div class="form-group row justify-content-end">
                 <div class="col-8 col-md-6">
-                    <button type="submit" class="btn btn-success btn-block"> 
+                    <button class="btn btn-success btn-block btn-save"> 
                         <i class="mdi mdi-content-save"></i> 
                         Salvar Alterações
                     </button>
@@ -27,3 +27,5 @@
 
     </div>
 </div>
+
+<script src="src/disciplinas/controle/adiciona-disciplinas.js"></script>
