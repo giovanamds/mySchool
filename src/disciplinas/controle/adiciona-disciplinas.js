@@ -25,7 +25,9 @@ $(document).ready(function() {
                         </button>
                 </div>
                 `)
-
+                    // Limpando os campos do meu formulário
+                $('#disciplina').val('')
+                $('#professor').val('')
             }
         })
     })
