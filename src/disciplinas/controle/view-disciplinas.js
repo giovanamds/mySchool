@@ -2,9 +2,9 @@ $(document).ready(function() {
 
     // Monitorar o clique em cima dos botões com a classe btn-view
     $('.btn-view').on('click', function(e) {
-
-        // Criando uma variável para coletar o ID do botão clicado
-        //Desenvolvo uma hash e juntamente com ela coleto o id do botão com a função this
+        e.preventDefault()
+            // Criando uma variável para coletar o ID do botão clicado
+            //Desenvolvo uma hash e juntamente com ela coleto o id do botão com a função this
         var dados = `id = ${$(this).attr('id')}`
 
         $.ajax({
