@@ -5,12 +5,13 @@ $(document).ready(function() {
         e.preventDefault()
             // Criando uma variável para coletar o ID do botão clicado
             //Desenvolvo uma hash e juntamente com ela coleto o id do botão com a função this
-        var dados = `id = ${$(this).attr('id')}`
+        var dados = `id=${$(this).attr('id')}`
 
         $.ajax({
             type: 'POST',
             dataType: 'JSON',
             assync: true,
+            data: dados,
             url: 'src/disciplinas/modelo/view-disciplinas.php',
             success: function(dados) {
 
