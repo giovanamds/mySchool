@@ -1,10 +1,25 @@
+// Criar a funcionalidade para fechar o formulário na tela
+
+function closeForm() {
+
+    $('.btn-close').click(function(e) {
+        e.preventDefault()
+            // Primeiro vou limpar a DIV
+        $('#form').empty()
+
+        // Depois vou fechar a DIV
+        $('#form').hide()
+    })
+}
+
 $(document).ready(function() {
 
     // Monitorar o clique em cima dos botões com a classe btn-view
     $('.btn-view').on('click', function(e) {
         e.preventDefault()
-            // Criando uma variável para coletar o ID do botão clicado
-            //Desenvolvo uma hash e juntamente com ela coleto o id do botão com a função this
+
+        // Criando uma variável para coletar o ID do botão clicado
+        //Desenvolvo uma hash e juntamente com ela coleto o id do botão com a função this
         var dados = `id=${$(this).attr('id')}`
 
         $.ajax({
@@ -14,6 +29,8 @@ $(document).ready(function() {
             data: dados,
             url: 'src/disciplinas/modelo/view-disciplinas.php',
             success: function(dados) {
+
+                $('#form').show()
 
                 // Carregando meu formulário dentro da DIV que deixamos em branco para mostrar os dados
                 $('#form').load('src/disciplinas/visao/adiciona-disciplinas.html', function() {
@@ -25,6 +42,9 @@ $(document).ready(function() {
                     $('#disciplina').attr('disabled', true)
                     $('#professor').val(dados[0].professor)
                     $('#professor').attr('disabled', true)
+
+                    closeForm()
+
                 })
             }
         })
