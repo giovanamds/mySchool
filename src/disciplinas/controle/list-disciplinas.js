@@ -25,6 +25,7 @@ $(document).ready(function() {
                 $('tbody').append(resultado)
             }
             $('body').append('<script src="src/disciplinas/controle/view-disciplinas.js"></script>')
+            $('body').append('<script src="src/disciplinas/controle/edit-disciplinas.js"></script>')
         }
     })
 
