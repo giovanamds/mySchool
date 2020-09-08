@@ -1,14 +1,15 @@
 // Criar a funcionalidade para fechar o formulário na tela
 
-function saveForm() {
+function closeForm() {
 
-    $('.btn-save').click(function(e) {
+    $('.btn-close').click(function(e) {
         e.preventDefault()
             // Primeiro vou limpar a DIV
         $('#form').empty()
 
         // Depois vou fechar a DIV
         $('#form').hide()
+        $('.row').show()
     })
 }
 
@@ -31,21 +32,26 @@ $(document).ready(function() {
             success: function(dados) {
 
                 $('#form').show()
+                $('.row').hide()
 
                 // Carregando meu formulário dentro da DIV que deixamos em branco para mostrar os dados
                 $('#form').load('src/disciplinas/visao/adiciona-disciplinas.html', function() {
-                    //  $('.btn-save').after('<button class="btn btn-success btn-block btn-save"><i class="mdi mdi-content-save"></i>Salvar Alterações</button>')
-                    $('.btn-save')
+                    $('.btn-save').after('<button class="btn btn-secondary btn-block btn-close"><i class="mdi mdi-close"></i>Fechar</button>')
+                        //$('.btn-save')
+                    $('.btn-save').addClass('btn-update').removeClass('btn-save')
                     $('h2').empty()
                     $('h2').append('Edição de cadastro')
                     $('#disciplina').val(dados[0].disciplina)
                         //$('#disciplina').attr('disabled', true)
                     $('#professor').val(dados[0].professor)
                         //$('#professor').attr('disabled', true)
+                    $('#professor').after(`<input type="hidden" name="id" id="id" value="${dados[0].id}">`)
 
-                    //closeForm()
+                    closeForm()
 
                 })
+
+                $('body').append('<script src="src/disciplinas/controle/atualiza-disciplinas.js"></script>')
             }
         })
     })

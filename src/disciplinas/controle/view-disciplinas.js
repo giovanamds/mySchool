@@ -9,6 +9,7 @@ function closeForm() {
 
         // Depois vou fechar a DIV
         $('#form').hide()
+        $('.row').show()
     })
 }
 
@@ -31,6 +32,7 @@ $(document).ready(function() {
             success: function(dados) {
 
                 $('#form').show()
+                $('.row').hide()
 
                 // Carregando meu formulário dentro da DIV que deixamos em branco para mostrar os dados
                 $('#form').load('src/disciplinas/visao/adiciona-disciplinas.html', function() {
