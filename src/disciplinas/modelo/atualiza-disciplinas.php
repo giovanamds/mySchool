@@ -5,6 +5,8 @@
 
     $disciplina = $_REQUEST['disciplina'];
     $professor = $_REQUEST['professor'];
+    $nota = $_REQUEST['nota'];
+    $id_alunos = $_REQUEST['id_alunos'];
     $id = $_REQUEST['id'];
 
     if($disciplina == ""){
@@ -12,7 +14,8 @@
     }
     else{
         // Gerar um script SQL para cadastro das informações no banco de dados
-        $sql = "UPDATE disciplinas SET disciplina = '".$disciplina."', professor = '".$professor."' WHERE id = ".$id."";
+        $sql = "UPDATE disciplinas SET disciplina = '".$disciplina."', professor = '".$professor."',
+        nota = '".$nota."', id_alunos = '".$id_alunos."' WHERE id = ".$id."";
 
         // Testar o comando SQL no banco de dados
         if(mysqli_query($conecta, $sql)){

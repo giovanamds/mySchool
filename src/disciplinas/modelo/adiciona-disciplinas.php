@@ -5,13 +5,16 @@
 
     $disciplina = $_REQUEST['disciplina'];
     $professor = $_REQUEST['professor'];
+    $nota = $_REQUEST['nota'];
+    // $id_alunos = $_REQUEST['id_alunos'];   Somente será possível após o login
 
     if($disciplina == ""){
         echo "O campo com o nome da disciplina não pode estar vazio, tente novamente";
     }
     else{
         // Gerar um script SQL para cadastro das informações no banco de dados
-        $sql = "INSERT INTO disciplinas (disciplina, professor) VALUES ('".$disciplina."', '".$professor."')";
+        $sql = "INSERT INTO disciplinas (disciplina, professor, nota, id_alunos) VALUES ('".$disciplina."', 
+        '".$professor."', '".$nota."', ".$id_alunos.")";
 
         // Testar o comando SQL no banco de dados
         if(mysqli_query($conecta, $sql)){
