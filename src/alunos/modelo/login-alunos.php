@@ -17,6 +17,16 @@
 
     if($resultado && mysqli_num_rows($resultado)>0){
         $dados = array('result' => true);
+
+        // Criarei a função  para guardar os dados do usuário logado
+        while($list = mysqli_fetch_array($resultado)){
+            // Iniciar uma sessão do navegador para armazenar constantes
+            session_start();
+            // Declaração das sessões constantes no meu sistema
+            $_SESSION['id'] = $list['id'];
+            $_SESSION['nome'] = $list['nome'];
+            $_SESSION
+        }
     }
 
     else{
