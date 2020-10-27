@@ -25,8 +25,10 @@
             // Declaração das sessões constantes no meu sistema
             $_SESSION['id'] = $list['id'];
             $_SESSION['nome'] = $list['nome'];
-            $_SESSION
+            $_SESSION['tipo'] = $list['tipo'];
         }
+
+        $dados = array('result' => true);
     }
 
     else{

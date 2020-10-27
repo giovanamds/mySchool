@@ -3,10 +3,12 @@
     // Vou me conectar ao banco de dados
     include('../../conexao/conn.php');
 
+    session_start();
+
     $disciplina = $_REQUEST['disciplina'];
     $professor = $_REQUEST['professor'];
     $nota = $_REQUEST['nota'];
-    $id_alunos = $_REQUEST['id_alunos'];
+    $id_alunos = $_SESSION['id'];
     $id = $_REQUEST['id'];
 
     if($disciplina == ""){

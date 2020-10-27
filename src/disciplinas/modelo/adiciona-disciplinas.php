@@ -6,7 +6,9 @@
     $disciplina = $_REQUEST['disciplina'];
     $professor = $_REQUEST['professor'];
     $nota = $_REQUEST['nota'];
-    // $id_alunos = $_REQUEST['id_alunos'];   Somente será possível após o login
+
+    session_start();
+    $id_alunos = $_SESSION['id'];
 
     if($disciplina == ""){
         echo "O campo com o nome da disciplina não pode estar vazio, tente novamente";
